@@ -12,14 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan("com.heaven.springbootdemo.dao")
-@ComponentScan
-@EnableAutoConfiguration(
-        exclude = {
-                DataSourceAutoConfiguration.class,
-                HibernateJpaAutoConfiguration.class, //（如果使用Hibernate时，需要加）
-                DataSourceTransactionManagerAutoConfiguration.class,
-        }
-)
 public class SpringBootDemoApplication {
 
     public static void main(String[] args) {
