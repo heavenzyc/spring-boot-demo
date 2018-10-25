@@ -3,5 +3,3 @@ spring:
   profiles:
     active: @profileActive@
     include: dao-@profileActive@,service-@profileActive@
-  resources:
-    static-locations:
