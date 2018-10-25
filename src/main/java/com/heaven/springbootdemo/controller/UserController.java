@@ -42,6 +42,6 @@ public class UserController {
 
     @RequestMapping("v")
     public String getValue() {
-        return key1 + " " + key2;
+        return key1 + "->" + key2;
     }
 }
