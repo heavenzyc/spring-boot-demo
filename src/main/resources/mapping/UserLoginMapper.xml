@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.heaven.springbootdemo.dao.UserLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.heaven.springbootdemo.entity.UserLogin" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
+    <result column="login_no" property="loginNo" jdbcType="VARCHAR" />
+    <result column="login_pwd" property="loginPwd" jdbcType="VARCHAR" />
+    <result column="phone_no" property="phoneNo" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="badge_no" property="badgeNo" jdbcType="VARCHAR" />
+    <result column="account_type" property="accountType" jdbcType="INTEGER" />
+    <result column="pwd_expired_time" property="pwdExpiredTime" jdbcType="TIMESTAMP" />
+    <result column="account_from" property="accountFrom" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="last_upd_user" property="lastUpdUser" jdbcType="BIGINT" />
+    <result column="last_upd_time" property="lastUpdTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, login_no, login_pwd, phone_no, email, badge_no, account_type, pwd_expired_time, 
+    account_from, status, created, last_upd_user, last_upd_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from erp_login
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from erp_login
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.heaven.springbootdemo.entity.UserLogin" >
+    insert into erp_login (id, user_id, login_no, 
+      login_pwd, phone_no, email, 
+      badge_no, account_type, pwd_expired_time, 
+      account_from, status, created, 
+      last_upd_user, last_upd_time)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{loginNo,jdbcType=VARCHAR}, 
+      #{loginPwd,jdbcType=VARCHAR}, #{phoneNo,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{badgeNo,jdbcType=VARCHAR}, #{accountType,jdbcType=INTEGER}, #{pwdExpiredTime,jdbcType=TIMESTAMP}, 
+      #{accountFrom,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, 
+      #{lastUpdUser,jdbcType=BIGINT}, #{lastUpdTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.heaven.springbootdemo.entity.UserLogin" >
+    insert into erp_login
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="loginNo != null" >
+        login_no,
+      </if>
+      <if test="loginPwd != null" >
+        login_pwd,
+      </if>
+      <if test="phoneNo != null" >
+        phone_no,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="badgeNo != null" >
+        badge_no,
+      </if>
+      <if test="accountType != null" >
+        account_type,
+      </if>
+      <if test="pwdExpiredTime != null" >
+        pwd_expired_time,
+      </if>
+      <if test="accountFrom != null" >
+        account_from,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="lastUpdUser != null" >
+        last_upd_user,
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="loginNo != null" >
+        #{loginNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null" >
+        #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null" >
+        #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="badgeNo != null" >
+        #{badgeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        #{accountType,jdbcType=INTEGER},
+      </if>
+      <if test="pwdExpiredTime != null" >
+        #{pwdExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFrom != null" >
+        #{accountFrom,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdUser != null" >
+        #{lastUpdUser,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdTime != null" >
+        #{lastUpdTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.heaven.springbootdemo.entity.UserLogin" >
+    update erp_login
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="loginNo != null" >
+        login_no = #{loginNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPwd != null" >
+        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneNo != null" >
+        phone_no = #{phoneNo,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="badgeNo != null" >
+        badge_no = #{badgeNo,jdbcType=VARCHAR},
+      </if>
+      <if test="accountType != null" >
+        account_type = #{accountType,jdbcType=INTEGER},
+      </if>
+      <if test="pwdExpiredTime != null" >
+        pwd_expired_time = #{pwdExpiredTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFrom != null" >
+        account_from = #{accountFrom,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdUser != null" >
+        last_upd_user = #{lastUpdUser,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdTime != null" >
+        last_upd_time = #{lastUpdTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.heaven.springbootdemo.entity.UserLogin" >
+    update erp_login
+    set user_id = #{userId,jdbcType=BIGINT},
+      login_no = #{loginNo,jdbcType=VARCHAR},
+      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      phone_no = #{phoneNo,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      badge_no = #{badgeNo,jdbcType=VARCHAR},
+      account_type = #{accountType,jdbcType=INTEGER},
+      pwd_expired_time = #{pwdExpiredTime,jdbcType=TIMESTAMP},
+      account_from = #{accountFrom,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      last_upd_user = #{lastUpdUser,jdbcType=BIGINT},
+      last_upd_time = #{lastUpdTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
