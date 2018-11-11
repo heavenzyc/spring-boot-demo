@@ -21,4 +21,6 @@ class Student extends UserService {
   override def getAllUser: util.List[User] = userMapper.selectAllUser()
 
   override def getUserById(id: lang.Long): User = userMapper.selectByPrimaryKey(id:Long)
+
+  override def insertUser(user: User): Int = userMapper.insert(user: User)
 }
