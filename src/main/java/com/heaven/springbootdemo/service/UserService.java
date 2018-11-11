@@ -8,5 +8,5 @@ public interface UserService {
 
     List<User> getAllUser();
 
-    int insertUser(User user);
+    User getUserById(Long id);
 }
