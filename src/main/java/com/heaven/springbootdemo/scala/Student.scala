@@ -23,4 +23,13 @@ class Student extends UserService {
   override def getUserById(id: lang.Long): User = userMapper.selectByPrimaryKey(id:Long)
 
   override def insertUser(user: User): Int = userMapper.insert(user: User)
+
+  def getUserList : util.List[User] = {
+    var userList : util.List[User] = userMapper.selectAllUser()
+    import scala.collection.JavaConverters._
+    for (a <- userList.asScala) {
+      println(a.getUserName)
+    }
+    return userList;
+  }
 }

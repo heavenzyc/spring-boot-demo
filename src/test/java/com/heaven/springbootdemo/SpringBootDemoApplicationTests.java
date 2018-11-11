@@ -1,10 +1,10 @@
 package com.heaven.springbootdemo;
 
-import com.alibaba.fastjson.JSONObject;
 import com.heaven.springbootdemo.dao.UserLoginMapper;
 import com.heaven.springbootdemo.dao.UserMapper;
 import com.heaven.springbootdemo.entity.User;
 import com.heaven.springbootdemo.entity.UserLogin;
+import com.heaven.springbootdemo.scala.Student;
 import com.heaven.springbootdemo.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,8 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootDemoApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
@@ -26,6 +24,8 @@ public class SpringBootDemoApplicationTests {
     private UserLoginMapper userLoginMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private Student student;
     @Test
     public void contextLoads() {
     }
@@ -82,5 +82,10 @@ public class SpringBootDemoApplicationTests {
                 System.out.println(i);
             }
         }
+    }
+
+    @Test
+    public void getUserListTest() {
+        student.getUserList();
     }
 }

@@ -33,7 +33,7 @@
     select 
     <include refid="Base_Column_List" />
     from erp_base_user
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT} limit 10
   </select>
 
   <select id="selectAllUser" resultMap="BaseResultMap">
