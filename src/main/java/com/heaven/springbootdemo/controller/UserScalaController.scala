@@ -15,9 +15,17 @@ class UserScalaController @Autowired()(student: Student, studentImpl : StudentIm
 
   @RequestMapping(Array("sc/u")) def getUserForScala: User = student.getUserById(1L)
 
+  @RequestMapping(Array("sc/id"))
+  @RequestBody
+  def getUserById() = {
+//    studentImpl.getUserScala(1)
+    studentImpl.getUserById()
+  }
+
   @RequestMapping(Array("sc/us"))
   @RequestBody
   def getUserScala() = {
-    studentImpl.getUserScala(1)
+    val u = studentImpl.getUserScala(1)
+    u.nickName
   }
 }
